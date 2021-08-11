@@ -1,3 +1,5 @@
+package ua.com.multithreading;
+
 import ua.com.multithreading.controller.HorseRacing;
 
 public class Main {
