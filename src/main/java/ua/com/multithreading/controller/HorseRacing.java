@@ -25,7 +25,7 @@ public class HorseRacing {
             throw new RuntimeException(e);
         }
 
-        Util.printListAndMessage(racing.getResults(), "");
+        //Util.printListAndMessage(racing.getResults(), "");
         System.out.println("Your horse went: " + racing.getCurrentHorsePlace(currentHorse));
     }
 
