@@ -4,6 +4,7 @@ import ua.com.multithreading.entity.Horse;
 import ua.com.multithreading.entity.Racing;
 import ua.com.multithreading.util.Util;
 
+import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
@@ -25,7 +26,10 @@ public class HorseRacing {
             throw new RuntimeException(e);
         }
 
-        //Util.printListAndMessage(racing.getResults(), "");
+      for(Map.Entry entry : racing.getResults().entrySet()){
+          System.out.println(entry.getKey() + " " + entry.getValue());
+      }
+
         System.out.println("Your horse went: " + racing.getCurrentHorsePlace(currentHorse));
     }
 

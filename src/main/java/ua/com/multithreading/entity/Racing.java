@@ -1,26 +1,28 @@
 package ua.com.multithreading.entity;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Racing {
 
-    private List<Integer> results;
+    private ConcurrentHashMap<Integer, Integer> results;
+    private AtomicInteger counter;
 
     public Racing() {
-        results = new ArrayList<>();
+        results = new ConcurrentHashMap<>();
+        counter = new AtomicInteger(1);
     }
 
-    public List<Integer> getResults() {
+    public ConcurrentHashMap<Integer, Integer> getResults() {
         return results;
     }
 
     public void addResult(int number) {
-        results.add(number);
+        results.put(number, counter.getAndIncrement());
     }
 
     public int getCurrentHorsePlace(int current) {
-        return results.indexOf(current) + 1;
+        return results.get(current);
     }
 }
 

@@ -7,8 +7,8 @@ import static java.lang.Thread.sleep;
 public class Horse implements Runnable {
     private int alreadyRun;
     private boolean isRunning = true;
-    private Racing race;
-    private Integer serialNumber;
+    private final Racing race;
+    private final Integer serialNumber;
 
     public Horse(Racing raceObj, int number) {
         race = raceObj;
