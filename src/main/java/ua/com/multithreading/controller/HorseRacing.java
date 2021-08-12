@@ -15,6 +15,7 @@ public class HorseRacing {
         ExecutorService executorService = Executors.newFixedThreadPool(10);
         Racing racing = new Racing();
 
+        System.out.println("Running...");
         for (int i = 1; i <= 10; i++) {
             executorService.execute(new Horse(racing, i));
         }
@@ -25,10 +26,11 @@ public class HorseRacing {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+        System.out.println("All horses finished");
 
-      for(Map.Entry entry : racing.getResults().entrySet()){
+/*      for(Map.Entry entry : racing.getResults().entrySet()){
           System.out.println(entry.getKey() + " " + entry.getValue());
-      }
+      }*/
 
         System.out.println("Your horse went: " + racing.getCurrentHorsePlace(currentHorse));
     }
